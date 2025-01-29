@@ -9,32 +9,40 @@
 <body>
     <div id="form-container">
         <h1>Sign Up Now!</h1>
-        <form id="form">
+        <form id="form" novalidate>
             <div class="form-element">
                 <label for="fname">Full Name</label>
-                <input type="text" id="fname" placeholder="Enter name">
+                <input type="text" id="fname" placeholder="Enter name" name="name"
+                       required minlength="3" maxlength="50">
             </div>
             <div class="form-element">
-                <label for="phonenum">Full Name</label>
-                <input type="tel" id="phonenum" placeholder="+444-444-444">
+                <label for="phonenum">Phone Number</label>
+                <input type="tel" id="phonenum" placeholder="444-444-4444" name="phone"
+                        required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
             </div>
             <div class="form-element">
                 <label for="email">Email Adress</label>
-                <input type="email" id="email" placeholder="example@example.com">
+                <input type="email" id="email" placeholder="example@example.com" name="email"
+                        required>
             </div>
             <div class="form-element">
                 <label for="website">Portfolio Website</label>
-                <input type="url" id="website" placeholder="https://juris-raudulis.netlify.app/">
+                <input type="url" id="website" placeholder="https://juris-raudulis.netlify.app/" name="website"
+                        required>
             </div>
             <div class="form-element">
-                <label for="password">Create Website</label>
-                <input type="password" id="password" placeholder="enter password">
+                <label for="password">Create Password</label>
+                <input type="password" id="password" placeholder="enter password (Min. 8 Characters)" name="password"
+                        required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                        title="Password must contain at least 1 uppercase character, 1 lower case character and a number">
             </div>
             <div class="form-element">
                 <label for="confirm-pass">Confirm Password</label>
-                <input type="password" id="confirm-pass" placeholder="enter password">
+                <input type="password" id="confirm-pass" placeholder="enter password"
+                        required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$"
+                        title="Passwords don't match">
             </div>
-            <button type="submit">Register</button>
+            <button id="button" type="submit">Register</button>
         </form>
         <div id="footer">
             <h3 id="message">Call to action</h3>
